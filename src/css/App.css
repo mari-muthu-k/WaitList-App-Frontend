@@ -10,3 +10,11 @@ html {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
+input:focus {
+  box-shadow: none !important;
+  outline: 0 none;
+}
+.error{
+  font-size: 16px;
+  color: red;
+}
