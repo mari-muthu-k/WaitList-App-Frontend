@@ -1,14 +1,19 @@
+import { Suspense,lazy }  from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const LandingPage = lazy(()=>import("./views/LandingPage"));
 
 function App() {
   return (
+                <Suspense fallback={<div className="loading" />}>
                   <Router>
                      <Routes>
-                         <Route  path={`/`} element={<div><h1>Landing page</h1></div>}/>
+                         <Route  path={`/`} element={<LandingPage/>}/>
                          <Route  path={`/subscribe`} element={<div><h1>Subscribe for product page</h1></div>}/>
                          <Route  path={`/my/subscription`} element={<div><h1>View my subscription details page</h1></div>}/>
                          <Route  path={`/admin/login`} element={<div><h1>Admin login page</h1></div>}/>
@@ -16,6 +21,7 @@ function App() {
                          <Route path="*" element={<div><h1>404</h1></div>}/>
                       </Routes>
                   </Router>
+                </Suspense>
   );
 }
 
