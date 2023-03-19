@@ -7,6 +7,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import Subscribe from './views/subscribe';
+import MySubscription from './views/mySubscription';
 import AdminLogin from './views/adminLogin';
 
 const LandingPage = lazy(()=>import("./views/LandingPage"));
@@ -18,7 +19,7 @@ function App() {
                      <Routes>
                          <Route  path={`/`} element={<LandingPage/>}/>
                          <Route  path={`/subscribe`} element={<Subscribe/>}/>
-                         <Route  path={`/my/subscription`} element={<div><h1>View my subscription details page</h1></div>}/>
+                         <Route  path={`/my/subscription`} element={<MySubscription/>}/>
                          <Route  path={`/admin/login`} element={<AdminLogin/>}/>
                          <Route  path={`/admin/dashboard`} element={<div><h1>Admin dashboard page</h1></div>}/>
                          <Route path="*" element={<div><h1>404</h1></div>}/>
