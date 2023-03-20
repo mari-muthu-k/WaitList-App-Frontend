@@ -12,7 +12,9 @@ function NavBar() {
     <>
         <Navbar key={expand} style={{backgroundColor:"#000"}} variant='dark' expand={expand}>
           <Container fluid>
-            <img src={appleLogo} style={{width:"50px"}} alt={"logo"}/>
+            <img src={appleLogo} style={{width:"50px"}} alt={"logo"} onClick={()=>{
+              navigate("/");
+            }}/>
             {/* <Navbar.Brand href="#">iPhone store</Navbar.Brand> */}
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} style={{color:"#000"}}/>
             <Navbar.Offcanvas

@@ -32,11 +32,11 @@ function Subscribe() {
             navigate("/my/subscription");
         }
         else {
-            setErr(res.data.data);
+            setErr(res.data.messgae);
         }
         }).catch((e)=>{
-          if(e.response.data.data){
-            setErr(e.response.data.data);
+          if(e.response.data){
+            setErr(e.response.data.message);
           } 
           else {
             setErr('something went wrong');

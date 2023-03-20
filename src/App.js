@@ -1,9 +1,13 @@
-import { Suspense,lazy }  from 'react';
+import { Suspense,lazy,useReducer }  from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from 'react-router-dom';
+import AppContext from './context';
+import { reducer,InitialState } from './context/reducer';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import Subscribe from './views/subscribe';
@@ -13,7 +17,11 @@ import AdminLogin from './views/adminLogin';
 const LandingPage = lazy(()=>import("./views/LandingPage"));
 
 function App() {
+  const [appState, dispatch] = useReducer(reducer, InitialState);
+  const contextValue = { appState, dispatch };
+
   return (
+                <AppContext.Provider value={contextValue}>
                 <Suspense fallback={<div className="loading" />}>
                   <Router>
                      <Routes>
@@ -26,6 +34,7 @@ function App() {
                       </Routes>
                   </Router>
                 </Suspense>
+                </AppContext.Provider>
   );
 }
 
